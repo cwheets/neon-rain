@@ -8,7 +8,7 @@ import Leaderboards from "./pages/leaderboard"
 import BattlePage from "./pages/battleArea"
 import Register from "./pages/auth/register";
 import Login from "./pages/auth/login";
-import Save from "./pages/award/index.js";
+import Save from "./pages/award/index.jsx";
 
 
 function App() {

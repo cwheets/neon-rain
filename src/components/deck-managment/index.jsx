@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import deckJson from "../../cards.json";
 import Cards from "../cards";
 
-import PlayArea from "../../components/playArea";
+import PlayArea from "../playArea";
 import style from "./style.css";
 class DeckBrain extends Component {
   state = {
