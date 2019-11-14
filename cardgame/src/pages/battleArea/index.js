@@ -16,6 +16,7 @@ import Player from './players.png'
 import GameOver from "../../components/gameOver"
 import EnemyAction from "../../components/enemiesActionModul"
 import EnemyModal from "../../components/enemiesActionModul";
+import { log } from "util";
 
 var newWinCounts;
 var newEnemyObject;
@@ -74,7 +75,9 @@ class BattlePage extends Component {
   }
 
   componentDidUpdate(prevprops, prevState) {
-    const turnEnded = this.state.userTurnOver !== prevState.userTurnOver;
+    
+    
+    const turnEnded = this.state.userTurnOver ===true;
     const frozen = this.state.frozen;
 
     if (this.state.currentEnemyHealth <= 0) {
@@ -188,11 +191,11 @@ class BattlePage extends Component {
     let newEnemyArmorGain = this.state.currentEnemyArmorGain;
     let newUserHealth = this.state.userHealth;
     let newUserArmor = this.state.userArmor;
-
-    let randomAction = Math.floor(
-      Math.random() * possibleEnemyActions.length + 1
+    // console.log(possibleEnemyActions.length + 1);
+    
+    let randomAction = Math.floor(Math.random() * possibleEnemyActions.length + 1
     );
-    console.log(randomAction);
+    // console.log(randomAction);
 
     switch (randomAction) {
       case 1:
@@ -202,19 +205,27 @@ class BattlePage extends Component {
           let newEnemyAttackAction = ("Enemy Attacked for " + newEnemyAttack)
           this.setState({
             userArmor: newArmor,
-            enemyAction: newEnemyAttackAction
+            enemyAction: newEnemyAttackAction,
+            userTurnOver:false
           });
-        } else {
+        } 
+       
+        
+        else {
           let newAttack = newEnemyAttack - newUserArmor;
           let newHealth = newUserHealth - newAttack;
           this.setState({
             userHealth: newHealth,
-            userArmor: 0
+            userArmor: 0,
+           userTurnOver:false
           });
           if (this.state.userHealth <= 0) {
             this.userLoses()
           }
         }
+        this.setState({
+          userTurnOver:false
+        })
         break;
       case 2:
         //enemy gains armor
@@ -222,10 +233,12 @@ class BattlePage extends Component {
         let newEnemyAction = ("Enemy Gained Armor for " + newEnemyArmorGain)
         this.setState({
           currentEnemyArmor: newArmor,
-          enemyAction: newEnemyAction
+          enemyAction: newEnemyAction,
+          userTurnOver:false
         });
         return;
     }
+
   };
 
 
@@ -244,24 +257,38 @@ class BattlePage extends Component {
 
 
   handlePlayedCards = (playedCards) => {
+// console.log("cards array ",playedCards);
 
     let damage = 0;
-    let armor = this.state.userArmor;
+    // let currentArmor = this.state.userArmor;
     let selfDamage = 0;
     let health = this.state.userHealth;
     let newEnemyArmor;
     let userHealValue = 0;
     let newHealth = 0;
-    
+    let multiplier=1
+    let newDamage=0
+    let armor = this.state.userArmor;
     playedCards.forEach(card => {
+      
+    // console.log(card);
+    
+      
       switch (card.id) {
+      
         case 1:
-          damage += card.damage;
-
+        // newDamage= multiplier * card.damage
+        // console.log(multiplier, newDamage);
+        //   newDamage=card.damage
+        //   console.log(newDamage);
+          damage +=card.damage *multiplier
+          // damage = newDamage;
+    console.log(damage);
+    
           break;
 
         case 2:
-          armor += card.armor;
+            armor += card.armor;
 
           break;
         case 3:
@@ -269,7 +296,11 @@ class BattlePage extends Component {
           selfDamage += card.selfDamage;
           break;
         case 4:
-          damage = damage * card.multiplier;
+          multiplier=card.multiplier
+        console.log(multiplier);
+        damage= damage * multiplier
+        console.log(damage);
+          
           break;
         case 5:
           newEnemyArmor = 0;
@@ -293,7 +324,7 @@ class BattlePage extends Component {
     });
     if (damage) {
       let { newArmor, newHealth, gameWon } = this.userAttack(damage);
-      let turnOver = !this.state.userTurnOver;
+      // let turnOver = !this.state.userTurnOver;
       let tempHealth = health - selfDamage;
       if (gameWon) {
         let tempWin = this.state.winCount + 1;
@@ -304,17 +335,22 @@ class BattlePage extends Component {
       this.setState({
         currentEnemyArmor: newArmor,
         currentEnemyHealth: newHealth,
-        userTurnOver: turnOver,
-        userArmor: armor,
+        // userTurnOver: turnOver,
+        // userArmor: armor,
         userHealth: tempHealth
       });
-    } else {
-      let turnOver = !this.state.userTurnOver;
+    } 
+    else {
+
+   
       this.setState({
-        userTurnOver: turnOver,
+        // userTurnOver: turnOver,
         userArmor: armor
       });
     }
+    this.setState({
+      userTurnOver:true
+    })
   };
 
 
