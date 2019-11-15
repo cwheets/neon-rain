@@ -107,7 +107,7 @@ newestDeck=deckJson
 
   discardPlayed = () => {
     let tempDiscard = [...this.state.playArea, ...this.state.discard];
-    console.log("playArea", this.state.playArea);
+    // console.log("playArea", this.state.playArea);
     this.setState({
       discard: tempDiscard,
       playArea: []
@@ -131,7 +131,7 @@ newestDeck=deckJson
       let tempCard = tempDeck.shift();
       tempHand.push(tempCard);
     }
-    console.log(tempHand);
+    // console.log(tempHand);
 
     this.setState({
       hand: tempHand,
