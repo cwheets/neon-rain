@@ -82,16 +82,7 @@
         "class": "battleMage",
         "type": "Spell" 
     },
-    {
-        "id": 4,
-        "name": "Bot Net",
-        "image": "TBD",
-        "effect": null,
-        "text": "This spell increase the damage of your first attack played this round by 3x",
-        "multiplier":3,
-        "class": "battleMage",
-        "type": "Spell" 
-    },
+  
     {
         "id": 7,
         "name": "Jammer",

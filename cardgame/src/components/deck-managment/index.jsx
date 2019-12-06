@@ -222,7 +222,7 @@ newestDeck=deckJson
       
         <div id="gameArea stuffs">
           
-          <div className="playArea">{playArea.length ? playArea : null}</div>
+          
 
           <div className="row d-flex justify-content-center">
             <button
@@ -245,10 +245,13 @@ newestDeck=deckJson
           <br/>
   
           <br/>
-          
+         
           <br/>
+     
           <br/>
+        
           <br/>
+          <div className="playArea">{playArea.length ? playArea : null}</div>
           <br/>
           <br/>
           <br/>
