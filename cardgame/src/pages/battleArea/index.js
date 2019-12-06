@@ -111,58 +111,30 @@ class BattlePage extends Component {
   }
 
 
-  saveState = winCount => {
-    // winCount.preventDefault()
-    //   const userData = {
-    // winCount:1
-    //   };
-
-    const userData = 2
-    Axios.post("/api/users/winCount", userData)
-      .then(data => {
-        console.log(data);
-        // this.props.history.push("/award");
-      })
-      .catch(err => {
-        console.log(err.response);
-
-      });
-
-    console.log(userData);
-  }
-
-  // atStartOfBattle = winCount => {
-  //   Axios.GET("/api/users/login")
-  //     .then(data => {
-  //       console.log(data);
-  //       console.log(data.userData.winCount);
-  //       let userWinCount=data.userData.winCount
-  //         let userCards=data.userData.deck
-  //         let newCards = data.userData.addedCards
-  //       this.setState({
-  //         wincount:userWinCount
-  //       })
-  //     })
-  //     .catch(err => {
-  //       console.log(err.response);
-  //       alert("Username doesnt exists or password was wrong")
-  //     });
-  // };
-
-
-
-
-
 
   userAttack = (damage) => {
     let newArmor = 0;
     let gameWon = false;
     let newHealth;
-    if (this.state.currentEnemyArmor >= damage) {
+    let newCurrentEnemyHealth=this.state.currentEnemyHealth
+    let newCurrentEnemyArmor=this.state.currentEnemyArmor
+  console.log("Here is damage ",damage)
+  console.log("armor ",newCurrentEnemyArmor)
+    if (newCurrentEnemyArmor >= damage) {
       let tempArmor = this.state.currentEnemyArmor;
       newArmor = tempArmor - damage;
-    } else {
-      let newDamage = damage - this.state.currentEnemyArmor;
+      newHealth=newCurrentEnemyHealth
+      console.log(newArmor)
+      // this.setState({
+      //   currentEnemyArmor:newArmor
+      // })
+      return {
+        newArmor,
+        newHealth
+      }
+    } 
+    else {
+      let newDamage = damage - newCurrentEnemyArmor;
       let tempHealth = this.state.currentEnemyHealth;
       newHealth = tempHealth - newDamage;
       if (newHealth <= 0) {
@@ -175,8 +147,11 @@ class BattlePage extends Component {
           winCount: tempWins2
         })
       }
+ return{
+   newHealth
+ }
     }
-
+console.log(newArmor,newHealth)
     return {
       newArmor,
       newHealth,
@@ -195,7 +170,7 @@ class BattlePage extends Component {
     
     let randomAction = Math.floor(Math.random() * possibleEnemyActions.length + 1
     );
-    // console.log(randomAction);
+    console.log("The action the enemy did ",randomAction);
 
     switch (randomAction) {
       case 1:
@@ -332,6 +307,7 @@ class BattlePage extends Component {
           winCount: tempWin
         });
       }
+      console.log(newArmor,newHealth)
       this.setState({
         currentEnemyArmor: newArmor,
         currentEnemyHealth: newHealth,
@@ -440,3 +416,4 @@ class BattlePage extends Component {
   }
 }
 export default BattlePage;
+
