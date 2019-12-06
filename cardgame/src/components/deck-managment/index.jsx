@@ -251,9 +251,10 @@ newestDeck=deckJson
           <br/>
         
           <br/>
+       
+          <br/>
+          <br/>
           <div className="playArea">{playArea.length ? playArea : null}</div>
-          <br/>
-          <br/>
           <br/>
           <br/>
           <br/>

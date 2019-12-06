@@ -137,6 +137,7 @@ class BattlePage extends Component {
       let newDamage = damage - newCurrentEnemyArmor;
       let tempHealth = this.state.currentEnemyHealth;
       newHealth = tempHealth - newDamage;
+      newArmor=0
       if (newHealth <= 0) {
         let tempWins2 = this.state.winCount
         console.log(tempWins2);
@@ -148,7 +149,8 @@ class BattlePage extends Component {
         })
       }
  return{
-   newHealth
+   newHealth,
+   newArmor
  }
     }
 console.log(newArmor,newHealth)
