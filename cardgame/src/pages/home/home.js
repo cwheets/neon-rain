@@ -11,7 +11,7 @@ class Home extends Component {
     password: "",
     loggedInUser:"",
     show: false,
-    url:"http://localhost:8080",
+    url:"http://localhost:5000",
     // url:"https://manateepi.herokuapp.com",
   };
 
@@ -38,9 +38,9 @@ class Home extends Component {
             Resume  
           </button>
           </Link>
-          <Link to="/leaderboards">
+          <Link to="/rules">
           <button type="button" className="btn mb-3 neon1 nes-pointer nes-btn">
-            Highscore
+            Rules
           </button>
           </Link>
         </div>
