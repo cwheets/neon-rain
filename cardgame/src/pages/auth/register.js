@@ -22,7 +22,7 @@ const newUser = {
       password: this.state.password,
     };
 console.log(newUser);
-Axios.post("https://express-neon-rain-game.herokuapp.com/api/users/register", newUser).then(data => {
+Axios.post("https://expressneonraingame.herokuapp.com//api/users/register", newUser).then(data => {
   console.log(data);
   this.props.history.push("/storypage")
 }).catch (err=> {
