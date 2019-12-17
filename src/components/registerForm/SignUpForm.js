@@ -1,63 +1,14 @@
 import React from 'react'
-import { Link } from "react-router-dom";
 
-export default function SignUpFormNew(props) {
-
-
-
-
-        return (
-            <div className="container inputS">
-                <div className="landing3">
-                    <div className="home-wrap3">
-                        <div className="home-inner3"></div>
-                    </div>
-                </div>
-                <div className="nes-container is-rounded is-dark">
-                    <div style={{ marginTop: "4rem" }} className="row">
-                        <div className="col s8 offset-s2">
-                            <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-                                <h4>
-                                    <b>Register</b> below
-                </h4>
-                                <p className="grey-text text-darken-1">
-                                    Already have an account? <Link className="register" to="/loginNew">Log in</Link>
-                </p>
-                            </div>
-                            <form>
-                                <div className="nes-field is-inline col s12">
-                                    <label htmlFor="username">Username</label>
-                                    <input
-                                        onChange={props.handleChange}
-                                        value={props.username}
-                                        id="username"
-                                        type="text"
-                                        className="nes-input nes-pointer neon1"
-                                    />
-                                </div>
-                                <div className="nes-field is-inline col s12">
-                                    <label htmlFor="password">Password</label>
-                                    <input
-                                        onChange={props.handleChange}
-                                        value={props.password}
-                                        id="password"
-                                        type="password"
-                                        className="nes-input nes-pointer neon1"
-                                    />
-                                </div>
-                                <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-                                    <button
-                                        type="submit" onClick={props.handleSignupFormSubmit}
-                                        className="loginBtn nes-pointer neon1 mb-3 nes-btn"
-                                    >
-                                        Sign up
-                  </button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        )
-    }
-
+export default function SignUpForm(props) {
+    return (
+        <div>
+            <h3>Signup</h3>
+            <form>
+                <input name="name" value={props.name} onChange={props.handleChange} />
+                <input name="password" value={props.password} type="password" onChange={props.handleChange} />
+                <input type="submit" onClick={props.handleSignupFormSubmit} />
+            </form>
+        </div>
+    )
+}
