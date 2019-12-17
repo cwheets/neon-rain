@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Axios from "axios";
 import "./style.css";
-
+import SignUpForm2 from "../../components/registerForm"
 class Register extends Component {
   constructor() {
     super();
