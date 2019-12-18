@@ -28,7 +28,7 @@ class Home extends Component {
         </div>
 
         <div className="caption text-center nes-pointer">
-          <Link to="/registerNew">
+          <Link to="/register">
           <button type="button" className="btn nes-pointer neon1 mb-3 nes-btn">
             Start New
             </button>

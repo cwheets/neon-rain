@@ -140,13 +140,3 @@ class RegisterOne extends Component {
   }
   export default RegisterOne;
 
-//   <SignUpForm2 username={this.state.username} password={this.state.password}handleChange={this.handleChange} handleSignupFormSubmit={this.handleSignupFormSubmit}/>
-//   {this.state.loggedInUser?(
-//     <div>
-//       <Secret username={this.state.loggedInUser.username}/>
-    
-//     </div>
-
-{/* <input name="name" value={props.name} onChange={props.handleChange} />
-<input name="password" value={props.password} type="password" onChange={props.handleChange} />
-<input type="submit" onClick={props.handleSignupFormSubmit} />  */}
