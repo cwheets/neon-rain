@@ -23,7 +23,7 @@ class Login extends Component {
     };
     
 
-    Axios.post("https://express-neon-rain-game.herokuapp.com/api/users/login", userData)
+    Axios.post("https://expressneonraingame.herokuapp.com/api/users/login", userData)
       .then(data => {
         console.log(data);
         this.props.history.push("/battlepage");

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Axios from "axios";
 import "./style.css";
-
+// import SignUpFormNew from "../../components/registerForm"
 class Register extends Component {
   constructor() {
     super();
@@ -52,7 +52,7 @@ return (
                 Already have an account? <Link className="register" to="/login">Log in</Link>
               </p>
             </div>
-            <form noValidate onSubmit={this.onSubmit}>
+            <form>
               <div className="nes-field is-inline col s12">
                 <label htmlFor="username">Username</label>
                 <input

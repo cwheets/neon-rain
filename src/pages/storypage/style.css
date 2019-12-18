@@ -11,11 +11,11 @@
   justify-content: center;
 }
 .neon26 {
-  font-size: 1.2em !important;
+  font-size: 1.0em !important;
   width: 90%;
 padding: 2%;
   top: 100%;
-  font-size: 1.5em;
+  font-size: 1.3em;
   background-color: #b6379e;
   text-shadow: 2px 2px #52c0da;
   box-shadow: -4px -4px #52c0da;
@@ -25,7 +25,7 @@ padding: 2%;
 .neon3 {
   color: #ffffff;
   text-transform: uppercase;
-  font-size: 1.5em;
+  /* font-size: 1.3em; */
   text-shadow: 2px 2px #52c0da;
   display: flex;
   align-items: center;

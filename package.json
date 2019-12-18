@@ -8,6 +8,7 @@
     "classnames": "^2.2.6",
     "firebase": "^7.5.1",
     "firebase-tools": "^7.9.0",
+    "gh-pages": "^2.1.1",
     "jwt-decode": "^2.2.0",
     "npm": "^6.13.3",
     "react": "^16.11.0",

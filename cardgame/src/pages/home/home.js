@@ -11,7 +11,7 @@ class Home extends Component {
     password: "",
     loggedInUser:"",
     show: false,
-    url:"http://localhost:5000",
+    url:"https://neon-rain-game.firebaseapp.com",
     // url:"https://manateepi.herokuapp.com",
   };
 
