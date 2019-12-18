@@ -11,7 +11,7 @@ class Register extends Component {
         username: "",
         password: "",
         loggedInUser:"",
-    url:"http://localhost:8080", 
+    url:["http://localhost:8080", "https://neon-rain-express-server.herokuapp.com/"],
         errors: {}
       };
     }
