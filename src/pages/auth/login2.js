@@ -95,7 +95,7 @@ componentDidMount(){
                 <b>Login</b> below
               </h4>
               <p className="grey-text text-darken-1">
-                Don't have an account? <Link to="/registerNew">Register</Link>
+                Don't have an account? <Link to="/register">Register</Link>
                 </p>
               </div>
               <form>
