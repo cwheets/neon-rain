@@ -33,7 +33,7 @@ class Home extends Component {
             Start New
             </button>
           </Link>
-          <Link to="/loginNew">
+          <Link to="/login">
           <button type="button" className="btn nes-pointer neon1 mb-3 nes-btn">
             Resume  
           </button>

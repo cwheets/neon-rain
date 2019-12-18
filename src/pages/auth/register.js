@@ -11,7 +11,7 @@ class Register extends Component {
         username: "",
         password: "",
         loggedInUser:"",
-    url:["http://localhost:8080", "https://neon-rain-express-server.herokuapp.com/"],
+    url:"https://neon-rain-game.firebaseapp.com/",
         errors: {}
       };
     }
@@ -94,7 +94,7 @@ class Register extends Component {
                   <b>Register</b> below
                 </h4>
                 <p className="grey-text text-darken-1">
-                  Already have an account? <Link className="login" to="/loginNew">Log in</Link>
+                  Already have an account? <Link className="login" to="/login">Log in</Link>
                 </p>
               </div>
               <form>

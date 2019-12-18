@@ -6,7 +6,7 @@ import Home from "./pages/home/home.js";
 import Leaderboards from "./pages/leaderboard"
 import BattlePage from "./pages/battleArea"
 import Register from "./pages/auth/register";
-import LoginNew from "./pages/auth/login2";
+import Login from "./pages/auth/login";
 import Save from "./pages/award/index.js";
 import Storypage from "./pages/storypage"
 
@@ -26,7 +26,7 @@ function App() {
         <Route exact path="/battlepage" component={BattlePage} />  
         {/* <Route exact path="/registerNew" component={RegisterOne} /> */}
         <Route exact path="/register" component={Register} />
-          <Route exact path="/loginNew" component={LoginNew} />
+          <Route exact path="/login" component={Login} />
           <Route exact path="/award" component={Save} />
           <Route exact path="/storypage" component={Storypage} />
       </div>
