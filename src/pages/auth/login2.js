@@ -11,7 +11,7 @@ class LoginNew extends Component {
       username: "",
       password: "",
       loggedInUser:"",
-      url:["http://localhost:8080", "https://expressneonraingame.herokuapp.com/"],
+      url:["http://localhost:8080", "https://neon-rain-express-server.herokuapp.com/"],
       errors: {}
     };
   }
