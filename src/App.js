@@ -25,7 +25,7 @@ function App() {
         <Route exact path="/" component={Home} />   
         <Route exact path="/battlepage" component={BattlePage} />  
         <Route exact path="/registerNew" component={RegisterOne} />
-        <Route exact path="/register" component={Register} />
+        {/* <Route exact path="/register" component={Register} /> */}
           <Route exact path="/loginNew" component={LoginNew} />
           <Route exact path="/award" component={Save} />
           <Route exact path="/storypage" component={Storypage} />
