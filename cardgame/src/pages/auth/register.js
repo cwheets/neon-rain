@@ -36,7 +36,7 @@ class Register extends Component {
           event.preventDefault();
         }
         Axios.post(`${this.state.url}/api/users/login`,{username:this.state.username,password:this.state.password},{withCredentials:true}).then(res=>{
-          console.log(res.data,res.status)
+          // console.log(res.data,res.status)
           this.setState({
             username:"",
             password:"",
