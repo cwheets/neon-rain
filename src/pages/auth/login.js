@@ -10,32 +10,69 @@ class Login extends Component {
     this.state = {
       username: "",
       password: "",
+      loggedInUser:"",
+      url:"https://neon-rain-game.firebaseapp.com/",
       errors: {}
     };
   }
-  onChange = e => {
-    this.setState({ [e.target.id]: e.target.value });
-  };
-  onSubmit = e => {
-    e.preventDefault();
-    const userData = {
-      username: this.state.username,
-      password: this.state.password
-    };
-    
+  handleSignupFormSubmit = event=>{
+    event.preventDefault();
+    const newUser = {
+        username: this.state.username,
+        password: this.state.password,
+      };
+    Axios.post(`${this.state.url}/api/users/register`,{username:this.state.username,password:this.state.password},{withCredentials:true}).then(res=>{
+        console.log(res.data,res.status)
+      this.handleLoginFormSubmit();
+    }).catch(err=>{
+      console.log(err.response);
+      alert("Username already exists or password could not be validated") 
+    })
+  }
+  handleLoginFormSubmit = event=>{
+    if(event){
 
-    Axios.post("https://express-neon-rain-game.herokuapp.com/api/users/login", userData)
-      .then(data => {
-        console.log(data);
-        this.props.history.push("/battlepage");
-      })
-      .catch(err => {
-        console.log(err.response);
-        alert("Username doesnt exists or password was wrong")
+      event.preventDefault();
+    }
+    Axios.post(`${this.state.url}/api/users/login`,{username:this.state.username,password:this.state.password},{withCredentials:true}).then(res=>{
+      console.log(res.data,res.status)
+      this.setState({
+        username:"",
+        password:"",
+        loggedInUser:res.data.user
       });
+      this.props.history.push("/storypage")
+    }).catch(err=>{
+      console.log(err.response);
+      this.setState({
+        username:"",
+        password:"",
+        loggedInUser:""
+      })
+    })
+  }
 
-    console.log(userData);
+componentDidMount(){
+    this.readSessions();
+  }
+
+  handleChange= event=>{
+      console.log("change")
+    const {username,value}=event.target;
+    this.setState({
+      [username]:value
+    })
+  }
+  onChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
   };
+
+  readSessions = ()=>{
+    Axios.get(`${this.state.url}/auth/readsessions`,{withCredentials:true}).then(res=>{
+      console.log(res.data)
+      this.setState({loggedInUser:res.data.user})
+    })
+  }
 
   
   
@@ -59,44 +96,46 @@ class Login extends Component {
               </h4>
               <p className="grey-text text-darken-1">
                 Don't have an account? <Link to="/register">Register</Link>
-              </p>
+                </p>
+              </div>
+              <form>
+                <div className="nes-field is-inline col s12">
+                  <label htmlFor="username">Username</label>
+                  <input
+                    onChange={this.onChange}
+                    value={this.state.username}
+                    error={errors.username}
+                    name="username"
+                    type="text"
+                    className="nes-input nes-pointer neon1"
+                  />
+                </div>
+                <div className="nes-field is-inline col s12">
+                  <label htmlFor="password">Password</label>
+                  <input
+                    onChange={this.onChange}
+                    value={this.state.password}
+                    error={errors.password}
+                    name="password"
+                    type="password"
+                    className="nes-input nes-pointer neon1"
+                  />
+                </div>
+                <div className="col s12" style={{ paddingLeft: "11.250px" }}>
+                  <button
+                    type="submit"
+                    className="loginBtn nes-pointer neon1 mb-3 nes-btn"
+                    onClick={this.handleLoginFormSubmit}
+                  >
+                    Login
+                  </button>
+      
+                </div>
+              </form>
             </div>
-            <form noValidate onSubmit={this.onSubmit}>
-              <div className="nes-field is-inline col s12">
-                <label htmlFor="username">Username</label>
-                <input
-                  error={errors.username}
-                  value={this.state.username}
-                  onChange={this.onChange} 
-                  type="username"
-                  id="username"
-                  className="nes-input nes-pointer neon1"
-                />
-              </div>
-              <div className="nes-field is-inline col s12">
-                <label htmlFor="password">Password</label>
-                <input
-                  className="nes-input neon1 nes-pointer"
-                  onChange={this.onChange}
-                  value={this.state.password}
-                  error={errors.password}
-                  id="password"
-                  type="password"
-                />
-              </div>
-              <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-                <button
-                  type="submit"
-                  className="loginBtn nes-pointer neon1 mb-3 nes-btn"
-                >
-                  Login
-                </button>
-              </div>
-            </form>
+          </div>
           </div>
         </div>
-        </div>
-      </div>
     );
   }
 }

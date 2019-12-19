@@ -11,8 +11,8 @@ class Home extends Component {
     password: "",
     loggedInUser:"",
     show: false,
-    url:"https://express-neon-rain-game.herokuapp.com/",
-    // url:"https://manateepi.herokuapp.com",
+    url:"https://neon-rain-game.firebaseapp.com/",
+  
   };
 
 
@@ -33,7 +33,7 @@ class Home extends Component {
             Start New
             </button>
           </Link>
-          <Link to="/loginNew">
+          <Link to="/login">
           <button type="button" className="btn nes-pointer neon1 mb-3 nes-btn">
             Resume  
           </button>
