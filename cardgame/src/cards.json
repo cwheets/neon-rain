@@ -1,43 +1,43 @@
 [
     {
         "id": 1,
-        "name": "Attack",
+        "name": "SQL Injection Attack",
         "damage": 5,
-        "image": "https://cdn1.vectorstock.com/i/1000x1000/72/45/two-crossed-light-neon-swords-laser-sabers-war-vector-19807245.jpg",
+        "image": "TBD",
         "text": "This Card does 5 damage to the enemy",
         "class": "battleMage",
         "type": "Action" 
     },
     {
         "id": 1,
-        "name": "Attack",
+        "name": "SQL Injection Attack",
         "damage": 5,
-        "image": "https://cdn1.vectorstock.com/i/1000x1000/72/45/two-crossed-light-neon-swords-laser-sabers-war-vector-19807245.jpg",
+        "image": "TBD",
         "text": "This Card does 5 damage to the enemy!",
         "class": "battleMage",
         "type": "Action" 
     },
     {
         "id": 1,
-        "name": "Attack",
+        "name": "SQL Injection Attack",
         "damage": 5,
-        "image": "https://cdn1.vectorstock.com/i/1000x1000/72/45/two-crossed-light-neon-swords-laser-sabers-war-vector-19807245.jpg",
+        "image": "TBD",
         "text": "This Card does 5 damage to the enemy!!",
         "class": "battleMage",
         "type": "Action" 
     },
     {
         "id": 1,
-        "name": "Attack",
+        "name": "SQL Injection Attack",
         "damage": 5,
-        "image": "https://cdn1.vectorstock.com/i/1000x1000/72/45/two-crossed-light-neon-swords-laser-sabers-war-vector-19807245.jpg",
+        "image": "TBD",
         "text": "This Card does 5 damage to the enemy!!!",
         "class": "battleMage",
         "type": "Action" 
     },
     {
         "id": 2,
-        "name": "Defense",
+        "name": "Firewall",
         "armor": 3,
         "image": "TBD",
         "text": "This card increase your armor by 3 pts until next turn",
@@ -46,7 +46,7 @@
     },
     {
         "id": 2,
-        "name": "Defense",
+        "name": "Firewall",
         "armor": 3,
         "image": "TBD",
         "text": "This card increase your armor by 3 pts until next turn!",
@@ -55,7 +55,7 @@
     },
     {
         "id": 2,
-        "name": "Defense",
+        "name": "Firewall",
         "armor": 3,
         "image": "TBD",
         "text": "This card increase your armor by 3 pts until next turn!!",
@@ -64,7 +64,7 @@
     },
     {
         "id": 2,
-        "name": "Defense",
+        "name": "Firewall",
         "armor": 3,
         "image": "TBD",
         "text": "This card increase your armor by 3 pts until next turn!!",
@@ -72,23 +72,25 @@
         "type": "Action" 
     },
     {
-        "id": 9,
-        "name": "Spell One",
-        "image": "TBD",
-        "effect": null,
-        "text": "This spell increase the damage of your next attacks is multiplied by 3",
-        "class": "battleMage",
-        "type": "Spell" 
-    },
-    {
-        "id": 10,
-        "name": "Spell Two",
+        "id": 3,
+        "name": "Buffer Overrun",
         "image": "TBD",
         "effect": null,
         "text": "This spell does 10 direct damage to the enemy, you take 4 damage",
         "damage": 10,
-        "selfdamage": 4,
+        "selfDamage": 4,
+        "class": "battleMage",
+        "type": "Spell" 
+    },
+  
+    {
+        "id": 7,
+        "name": "Jammer",
+        "image": "TBD",
+        "effect": null,
+        "text": "This spell makes the enemy skip their next turn",
         "class": "battleMage",
         "type": "Spell" 
     }
+  
 ]
